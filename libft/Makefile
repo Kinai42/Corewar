@@ -6,7 +6,7 @@
 #    By: dbauduin <dbauduin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/09 03:21:09 by dbauduin          #+#    #+#              #
-#    Updated: 2018/08/09 03:21:12 by dbauduin         ###   ########.fr        #
+#    Updated: 2018/11/13 02:28:47 by dbauduin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ OBJ_P	=	$(addprefix $(P_OBJ)/,$(OBJ))
 OBJ_W ?= $(shell find obj | grep \\.o$)
 
 __START: os all
-	 printf "$(OK)[+][$(PROJECT)] Done$(C_DEF)\n"
+	 printf "$(OK)[$(PROJECT)] Done$(C_DEF)\n"
 
 all: $(NAME)
 
@@ -59,10 +59,9 @@ re:			fclean all
 object:	$(SRC) $(P_SRC) $(P_OBJ)
 	$(foreach SOURCE, $(SRC), \
 		$(CC) $(CC_FLAG) -I ./include -c $(SOURCE) -o $(P_OBJ)/$(notdir $(SOURCE:.c=.o))	&& \
-		printf "$(OK)[+][$(PROJECT)] $(SOURCE)$(C_DEF)" && sleep $(SLEEP)	&& \
+		printf "$(OK)[$(PROJECT)] $(SOURCE)$(C_DEF)" && sleep $(SLEEP)	&& \
 		printf "\r\033[K" \
 	;)
-	printf "$(OK)[+][$(PROJECT)] Objects are made in ./$(P_OBJ)$(C_DEF)\n"
 
 library:	object $(P_OBJ) $(OBJ_P)
 	@ar rc $(NAME) $(OBJ_W)

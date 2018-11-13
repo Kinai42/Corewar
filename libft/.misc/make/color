@@ -14,6 +14,6 @@ violet	?=	\e[38;5;171m	## Havy strange
 purple	?=	\e[38;5;165m	## Too strange
 
 C_DEF	?= 	\e[38;5;15m
-OK		?=	\e[38;5;47m
+OK		?=	\e[32m
 WARN 	?=	\e[38;5;208m
 ERROR	?=	\e[38;5;196m

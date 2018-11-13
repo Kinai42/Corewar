@@ -6,7 +6,7 @@
 #    By: dbauduin <dbauduin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/27 17:32:35 by dbauduin          #+#    #+#              #
-#    Updated: 2018/10/28 17:16:20 by dbauduin         ###   ########.fr        #
+#    Updated: 2018/11/13 02:32:32 by dbauduin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ LIB_PATH = ../libft
 SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
 
-NAME = deasm
+PROJECT = DEASM
+NAME = ../deasm
 
 #FLAGS
 CPPFLAGS = -I include -I ../libft/include
@@ -41,8 +42,8 @@ all: $(NAME)
 $(NAME): $(OBJ) include/deasm.h
 	@make -C ../libft
 	@ $(CC) $(CFLAGS) -o $@ $(OBJ) ../libft/libft.a
-	@ echo "\033[32m[$(NAME)] compilation done\033[0m"
-	@ echo "\033[32m[$(NAME)] executable created\033[0m"
+	@ echo "\033[32m[$(PROJECT)] Compilation done\033[0m"
+	@ echo "\033[32m[$(PROJECT)] Executable created\033[0m"
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 	@ mkdir $(OBJ_PATH) 2> /dev/null || true

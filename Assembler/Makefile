@@ -6,7 +6,7 @@
 #    By: dbauduin <dbauduin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/27 17:33:55 by dbauduin          #+#    #+#              #
-#    Updated: 2018/10/28 17:05:37 by dbauduin         ###   ########.fr        #
+#    Updated: 2018/11/13 02:30:12 by dbauduin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ OBJ = $(addsuffix .o, $(addprefix obj/, byte check error file get_header init in
 OBJ_W ?= $(shell find obj | grep \\.o$)
 
 PROJECT = ASM
-NAME = asm
+NAME = ../asm
 cc =	-O1 -g -fsanitize=address	\
 		-fno-omit-frame-pointer		\
 		-fsanitize-address-use-after-scope
@@ -34,7 +34,8 @@ obj:
 $(NAME): $(OBJ)
 	@make -C ../libft
 	@gcc $(FLAG) -o $(NAME) $(OBJ) ../libft/libft.a
-	@printf "$(OK)[+][$(PROJECT)] Done $(C_DEF)\n"
+	@ echo "\033[32m[$(PROJECT)] Compilation done\033[0m"
+	@ echo "\033[32m[$(PROJECT)] Executable created\033[0m"
 
 obj/%.o: src/%.c
 	@gcc $(FLAG) -o $@ -c $< -I include/ -I ../libft/include

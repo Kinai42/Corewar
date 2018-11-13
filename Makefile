@@ -6,34 +6,28 @@
 #    By: dbauduin <dbauduin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/28 17:24:12 by dbauduin          #+#    #+#              #
-#    Updated: 2018/10/28 17:25:23 by dbauduin         ###   ########.fr        #
+#    Updated: 2018/11/13 02:29:49 by dbauduin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC		=   gcc
-CFLAGS	= 	-Wall -Wextra -Werror
-RM		=   rm -f
+VM_PATH		= ./Virtual_Machine
+ASM_PATH	= ./Assembler
+DECOMP		= ./Decompilateur
 
-VM_PATH		= ./VM
-ASM_PATH	= ./asm_dir
-DECOMP		= ./decomp
-
-all:	$(NAME)
-
-$(NAME):
-	@make -C $(LIBFT_PATH)
+all:
 	@make -C $(VM_PATH)
 	@make -C $(ASM_PATH)
+	@make -C $(DECOMP)
 
 clean:
-	@make -C $(LIBFT_PATH) clean
 	@make -C $(VM_PATH) clean
 	@make -C $(ASM_PATH) clean
+	@make -C $(DECOMP) clean
 
 fclean:	clean
-	@make -C $(LIBFT_PATH) fclean
 	@make -C $(VM_PATH) fclean
 	@make -C $(ASM_PATH) fclean
+	@make -C $(DECOMP) fclean
 
 re:		fclean all
 
